@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ product.name }} - ZypronTech{% endblock %}
+
+{% block content %}
+<section class="product-detail">
+    <div class="product-gallery">
+        {% if product.gallery.all %}
+            <div class="slider">
+                <button class="slider-btn prev" onclick="changeSlide(-1)">❮</button>
+
+                {% if product.image %}
+                    <div class="slide active">
+                        <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                    </div>
+                {% endif %}
+
+                {% for item in product.gallery.all %}
+                    <div class="slide">
+                        <img src="{{ item.image.url }}" alt="{{ item.alt_text|default:product.name }}">
+                    </div>
+                {% endfor %}
+
+                <button class="slider-btn next" onclick="changeSlide(1)">❯</button>
+            </div>
+
+            <div class="thumbnails">
+                {% if product.image %}
+                    <img src="{{ product.image.url }}" alt="{{ product.name }}" class="thumb active-thumb" data-index="0">
+                {% endif %}
+
+                {% for item in product.gallery.all %}
+                    <img src="{{ item.image.url }}"
+                         alt="{{ item.alt_text|default:product.name }}"
+                         class="thumb"
+                         data-index="{{ forloop.counter }}">
+                {% endfor %}
+            </div>
+
+        {% elif product.image %}
+            <img src="{{ product.image.url }}" alt="{{ product.name }}" class="single-product-image">
+        {% else %}
+            <div class="placeholder">Fără imagine</div>
+        {% endif %}
+    </div>
+
+    <div class="product-info-box">
+        <h2>{{ product.name }}</h2>
+        <p class="product-price">{{ product.price }} lei</p>
+        <p class="product-description">{{ product.description }}</p>
+    </div>
+</section>
+
+<script>
+    let currentSlide = 0;
+
+    const slides = document.querySelectorAll('.slide');
+    const thumbs = document.querySelectorAll('.thumb');
+
+    function showSlide(index) {
+        if (!slides.length) return;
+
+        if (index >= slides.length) {
+            currentSlide = 0;
+        } else if (index < 0) {
+            currentSlide = slides.length - 1;
+        } else {
+            currentSlide = index;
+        }
+
+        slides.forEach(slide => slide.classList.remove('active'));
+        thumbs.forEach(thumb => thumb.classList.remove('active-thumb'));
+
+        slides[currentSlide].classList.add('active');
+
+        if (thumbs[currentSlide]) {
+            thumbs[currentSlide].classList.add('active-thumb');
+        }
+    }
+
+    function changeSlide(step) {
+        showSlide(currentSlide + step);
+    }
+
+    thumbs.forEach(thumb => {
+        thumb.addEventListener('click', function () {
+            const index = parseInt(this.dataset.index);
+            showSlide(index);
+        });
+    });
+</script>
+{% endblock %}

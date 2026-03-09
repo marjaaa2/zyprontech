@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}Acasă | Tech Shop{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <h2>Produse tech alese cu grijă</h2>
+    <p>PC-uri, componente, gadgeturi și accesorii pentru pasionați de tech.</p>
+    <a class="btn" href="{% url 'store:product_list' %}">Vezi produsele</a>
+</section>
+
+<section>
+    <h3>Produse recente</h3>
+    <div class="grid">
+        {% for product in products %}
+            <div class="card">
+                {% if product.image %}
+                    <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                {% else %}
+                    <div class="placeholder">Fără imagine</div>
+                {% endif %}
+                <h4>{{ product.name }}</h4>
+                <p>{{ product.price }} lei</p>
+                <a class="btn small" href="{% url 'store:product_detail' product.slug %}">Detalii</a>
+            </div>
+        {% empty %}
+            <p>Nu există produse încă. Adaugă din admin.</p>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}
