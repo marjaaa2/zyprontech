@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %}Produs inexistent - ZypronTech{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <h2>Produsul nu a fost găsit</h2>
+    <p>Produsul pe care îl cauți nu există.</p>
+    <a class="btn" href="{% url 'store:product_list' %}">Înapoi la produse</a>
+</section>
+{% endblock %}

@@ -1,53 +1,40 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}{{ product.name }} - ZypronTech{% endblock %}
 
 {% block content %}
 <section class="product-detail">
     <div class="product-gallery">
-        {% if product.gallery.all %}
-            <div class="slider">
-                <button class="slider-btn prev" onclick="changeSlide(-1)">❮</button>
+        <div class="slider">
+            <button class="slider-btn prev" onclick="changeSlide(-1)">❮</button>
 
-                {% if product.image %}
-                    <div class="slide active">
-                        <img src="{{ product.image.url }}" alt="{{ product.name }}">
-                    </div>
-                {% endif %}
-
-                {% for item in product.gallery.all %}
-                    <div class="slide">
-                        <img src="{{ item.image.url }}" alt="{{ item.alt_text|default:product.name }}">
-                    </div>
-                {% endfor %}
-
-                <button class="slider-btn next" onclick="changeSlide(1)">❯</button>
+            <div class="slide active">
+                <img src="{% static product.main_image %}" alt="{{ product.name }}">
             </div>
 
-            <div class="thumbnails">
-                {% if product.image %}
-                    <img src="{{ product.image.url }}" alt="{{ product.name }}" class="thumb active-thumb" data-index="0">
-                {% endif %}
+            {% for image in product.gallery %}
+                <div class="slide">
+                    <img src="{% static image %}" alt="{{ product.name }}">
+                </div>
+            {% endfor %}
 
-                {% for item in product.gallery.all %}
-                    <img src="{{ item.image.url }}"
-                         alt="{{ item.alt_text|default:product.name }}"
-                         class="thumb"
-                         data-index="{{ forloop.counter }}">
-                {% endfor %}
-            </div>
+            <button class="slider-btn next" onclick="changeSlide(1)">❯</button>
+        </div>
 
-        {% elif product.image %}
-            <img src="{{ product.image.url }}" alt="{{ product.name }}" class="single-product-image">
-        {% else %}
-            <div class="placeholder">Fără imagine</div>
-        {% endif %}
+        <div class="thumbnails">
+            <img src="{% static product.main_image %}" alt="{{ product.name }}" class="thumb active-thumb" data-index="0">
+
+            {% for image in product.gallery %}
+                <img src="{% static image %}" alt="{{ product.name }}" class="thumb" data-index="{{ forloop.counter }}">
+            {% endfor %}
+        </div>
     </div>
 
     <div class="product-info-box">
         <h2>{{ product.name }}</h2>
         <p class="product-price">{{ product.price }} lei</p>
-        <p class="product-description">{{ product.description }}</p>
+        <p class="product-description">{{ product.description|linebreaksbr }}</p>
     </div>
 </section>
 
@@ -72,10 +59,7 @@
         thumbs.forEach(thumb => thumb.classList.remove('active-thumb'));
 
         slides[currentSlide].classList.add('active');
-
-        if (thumbs[currentSlide]) {
-            thumbs[currentSlide].classList.add('active-thumb');
-        }
+        thumbs[currentSlide].classList.add('active-thumb');
     }
 
     function changeSlide(step) {

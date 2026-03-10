@@ -1,24 +1,22 @@
 {% extends 'base.html' %}
+{% load static %}
 
-{% block title %}Produse | Tech Shop{% endblock %}
+{% block title %}Produse - ZypronTech{% endblock %}
 
 {% block content %}
-<h2>Toate produsele</h2>
-<div class="grid">
-    {% for product in products %}
-        <div class="card">
-            {% if product.image %}
-                <img src="{{ product.image.url }}" alt="{{ product.name }}">
-            {% else %}
-                <div class="placeholder">Fără imagine</div>
-            {% endif %}
-            <h3>{{ product.name }}</h3>
-            <p class="price">{{ product.price }} lei</p>
-            <p>Stoc: {{ product.stock }}</p>
-            <a class="btn small" href="{% url 'store:product_detail' product.slug %}">Vezi produs</a>
-        </div>
-    {% empty %}
-        <p>Nu ai produse adăugate încă.</p>
-    {% endfor %}
-</div>
+<section>
+    <h3>Produse</h3>
+    <div class="grid">
+        {% for product in products %}
+            <div class="card">
+                <img src="{% static product.main_image %}" alt="{{ product.name }}">
+                <h4>{{ product.name }}</h4>
+                <p>{{ product.price }} lei</p>
+                <a class="btn small" href="{% url 'store:product_detail' product.slug %}">Detalii</a>
+            </div>
+        {% empty %}
+            <p>Nu există produse încă.</p>
+        {% endfor %}
+    </div>
+</section>
 {% endblock %}

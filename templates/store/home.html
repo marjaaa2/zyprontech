@@ -1,11 +1,12 @@
 {% extends 'base.html' %}
+{% load static %}
 
-{% block title %}Acasă | Tech Shop{% endblock %}
+{% block title %}Acasă - ZypronTech{% endblock %}
 
 {% block content %}
 <section class="hero">
-    <h2>Produse tech alese cu grijă</h2>
-    <p>PC-uri, componente, gadgeturi și accesorii pentru pasionați de tech.</p>
+    <h2>Power. Performance. Precision.</h2>
+    <p>La ZypronTech găsești produse tech, componente PC, periferice și gadgeturi alese pentru performanță, stil și experiență premium.</p>
     <a class="btn" href="{% url 'store:product_list' %}">Vezi produsele</a>
 </section>
 
@@ -14,17 +15,13 @@
     <div class="grid">
         {% for product in products %}
             <div class="card">
-                {% if product.image %}
-                    <img src="{{ product.image.url }}" alt="{{ product.name }}">
-                {% else %}
-                    <div class="placeholder">Fără imagine</div>
-                {% endif %}
+                <img src="{% static product.main_image %}" alt="{{ product.name }}">
                 <h4>{{ product.name }}</h4>
                 <p>{{ product.price }} lei</p>
                 <a class="btn small" href="{% url 'store:product_detail' product.slug %}">Detalii</a>
             </div>
         {% empty %}
-            <p>Nu există produse încă. Adaugă din admin.</p>
+            <p>Nu există produse încă.</p>
         {% endfor %}
     </div>
 </section>
