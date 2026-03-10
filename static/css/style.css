@@ -354,6 +354,7 @@ footer p {
     background: #0b1020;
     padding: 4px;
 }
+
 .thumb:hover,
 .active-thumb {
     border-color: #ff2d55;
@@ -488,4 +489,14 @@ footer p {
     .product-detail {
         grid-template-columns: 1fr;
     }
+}
+
+
+.payment-buttons {
+    margin-top: 24px;
+}
+
+.buy-btn {
+    width: 100%;
+    font-size: 1rem;
 }
