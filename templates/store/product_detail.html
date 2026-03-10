@@ -35,8 +35,18 @@
         <h2>{{ product.name }}</h2>
         <p class="product-price">{{ product.price }} lei</p>
         <p class="product-description">{{ product.description|linebreaksbr }}</p>
+
+        <div class="payment-buttons">
+            <button id="stripe-checkout-btn" class="btn buy-btn">
+                Plătește cu cardul
+            </button>
+
+            <div id="paypal-button-container" style="margin-top: 16px;"></div>
+        </div>
     </div>
 </section>
+
+<script src="https://www.paypal.com/sdk/js?client-id=AYbvN-T3--RIDuCRqpi&currency=USD"></script>
 
 <script>
     let currentSlide = 0;
@@ -72,5 +82,64 @@
             showSlide(index);
         });
     });
+
+    const stripeBtn = document.getElementById("stripe-checkout-btn");
+
+    stripeBtn.addEventListener("click", async function () {
+        const response = await fetch("{% url 'store:stripe_checkout' product.slug %}", {
+            method: "POST",
+            headers: {
+                "X-Requested-With": "XMLHttpRequest",
+            }
+        });
+
+        const data = await response.json();
+
+        if (data.url) {
+            window.location.href = data.url;
+        } else {
+            alert("A apărut o problemă la inițierea plății cu cardul.");
+        }
+    });
+
+    paypal.Buttons({
+        createOrder: async function () {
+            const response = await fetch("{% url 'store:paypal_create_order' product.slug %}", {
+                method: "POST",
+                headers: {
+                    "X-Requested-With": "XMLHttpRequest",
+                }
+            });
+
+            const data = await response.json();
+            return data.id;
+        },
+
+        onApprove: async function (data) {
+            const response = await fetch(`/payments/paypal/capture/${data.orderID}/`, {
+                method: "POST",
+                headers: {
+                    "X-Requested-With": "XMLHttpRequest",
+                }
+            });
+
+            const result = await response.json();
+
+            if (result.status === "COMPLETED") {
+                window.location.href = "{% url 'store:payment_success' %}";
+            } else {
+                alert("Plata PayPal nu a fost finalizată.");
+            }
+        },
+
+        onCancel: function () {
+            window.location.href = "{% url 'store:payment_cancel' %}";
+        },
+
+        onError: function (err) {
+            console.error(err);
+            alert("A apărut o eroare la PayPal.");
+        }
+    }).render("#paypal-button-container");
 </script>
 {% endblock %}

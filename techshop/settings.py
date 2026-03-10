@@ -87,3 +87,15 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+import os
+
+STRIPE_SECRET_KEY = os.environ.get("STRIPE_SECRET_KEY", "")
+STRIPE_PUBLISHABLE_KEY = os.environ.get("STRIPE_PUBLISHABLE_KEY", "")
+
+PAYPAL_CLIENT_ID = os.environ.get("PAYPAL_CLIENT_ID", "AYbvN-T3--RIDuCRqpi")
+PAYPAL_CLIENT_SECRET = os.environ.get("PAYPAL_CLIENT_SECRET", "EJQqzvQQUADQfQiBAZk8H5faiz8rjQBTas6oYpA7QVjtx8BA7ro0dPjmI9EAYYwTGJMWxpdOrHBkYcQn")
+PAYPAL_MODE = os.environ.get("PAYPAL_MODE", "sandbox")
+
+SITE_URL = os.environ.get("SITE_URL", "http://127.0.0.1:8000")
