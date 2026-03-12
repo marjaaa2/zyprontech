@@ -28,23 +28,7 @@
 </section>
 {% endblock %}
 
-<section>
-    <h3>Recent Products</h3>
-    <p class="recent-subtext">
-        Check out the latest tech products, gaming accessories, and PC components,
-        selected for style, performance, and a premium setup experience.
-    </p>
 
-    <div class="grid">
-        {% for product in products %}
-            <div class="card">
-                <img src="{% static product.main_image %}" alt="{{ product.name }}">
-                <h4>{{ product.name }}</h4>
-                <p>{{ product.price }}</p>
-                <a class="btn small" href="{% url 'store:product_detail' product.slug %}">Details</a>
-            </div>
-        {% empty %}
-            <p>No products available yet.</p>
-        {% endfor %}
-    </div>
-</section>
+<p class="recent-subtext">
+    Check out the latest tech gear, PC components, and gaming accessories, handpicked for performance, style, and standout setups.
+</p>
