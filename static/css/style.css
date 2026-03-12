@@ -415,3 +415,34 @@ footer p {
         grid-template-columns: 1fr;
     }
 }
+
+
+
+.recent-section {
+    margin-top: 20px;
+}
+
+.recent-heading {
+    text-align: center;
+    max-width: 980px;
+    margin: 0 auto 34px;
+}
+
+.recent-heading h3 {
+    font-size: 3.2rem;
+    font-weight: 800;
+    margin-bottom: 18px;
+    color: #ffffff;
+}
+
+.recent-heading h3 span {
+    color: #ff2d55;
+}
+
+.recent-heading p {
+    font-size: 1.35rem;
+    line-height: 1.6;
+    color: #eef3ff;
+    max-width: 1000px;
+    margin: 0 auto;
+}
