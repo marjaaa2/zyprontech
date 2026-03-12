@@ -4,7 +4,7 @@ from .models import Product, ProductImage
 
 class ProductImageInline(admin.TabularInline):
     model = ProductImage
-    extra = 3
+    extra = 2
 
 
 @admin.register(Product)
