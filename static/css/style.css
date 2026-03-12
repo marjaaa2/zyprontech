@@ -5,10 +5,7 @@
 }
 
 body {
-    background:
-        radial-gradient(circle at top left, rgba(80, 160, 255, 0.2), transparent 32%),
-        radial-gradient(circle at top right, rgba(255, 90, 120, 0.18), transparent 32%),
-        linear-gradient(180deg, #22345f 0%, #30497d 100%);
+    background: #5c79b8 !important;
     color: #f5f7ff;
     font-family: Arial, sans-serif;
     min-height: 100vh;
@@ -24,9 +21,9 @@ header {
     position: sticky;
     top: 0;
     z-index: 100;
-    background: rgba(12, 20, 38, 0.9);
+    background: rgba(70, 95, 145, 0.92);
     backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 0 20px rgba(0, 102, 255, 0.08);
 }
 
@@ -71,7 +68,7 @@ header {
     font-size: 1.8rem;
     font-weight: 800;
     letter-spacing: 0.5px;
-    background: linear-gradient(90deg, #4db8ff, #ffffff 45%, #ff8a8a 100%);
+    background: linear-gradient(90deg, #d6ecff, #ffffff 45%, #ffd1d1 100%);
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
@@ -80,7 +77,7 @@ header {
 
 .brand-tagline {
     font-size: 0.85rem;
-    color: #c6d3ee;
+    color: #e3ebff;
     margin-top: 2px;
 }
 
@@ -94,7 +91,7 @@ header {
 
 .main-nav a {
     text-decoration: none;
-    color: #eef3ff;
+    color: #f4f7ff;
     font-weight: 700;
     font-size: 1.2rem;
     transition: 0.25s ease;
@@ -110,12 +107,12 @@ header {
     width: 0;
     height: 3px;
     border-radius: 999px;
-    background: linear-gradient(90deg, #ff5a5a, #ff2d55);
+    background: linear-gradient(90deg, #ff8a8a, #ff5d7a);
     transition: width 0.25s ease;
 }
 
 .main-nav a:hover {
-    color: #ff6a6a;
+    color: #ffe3e3;
 }
 
 .main-nav a:hover::after,
@@ -124,7 +121,7 @@ header {
 }
 
 .main-nav a.active {
-    color: #ff5a5a;
+    color: #ffd2d2;
 }
 
 main {
@@ -134,14 +131,14 @@ main {
 .hero {
     position: relative;
     overflow: hidden;
-    background: linear-gradient(135deg, rgba(20, 34, 68, 0.96), rgba(16, 28, 56, 0.96));
-    border: 1px solid rgba(77, 184, 255, 0.16);
+    background: linear-gradient(135deg, rgba(108, 138, 201, 0.96), rgba(86, 114, 180, 0.96));
+    border: 1px solid rgba(255, 255, 255, 0.16);
     border-radius: 28px;
     padding: 54px;
     margin: 36px 0 48px;
     box-shadow:
-        0 0 25px rgba(0, 132, 255, 0.1),
-        0 0 30px rgba(255, 0, 64, 0.08);
+        0 0 25px rgba(0, 132, 255, 0.08),
+        0 0 30px rgba(255, 0, 64, 0.06);
 }
 
 .hero::before {
@@ -149,8 +146,8 @@ main {
     position: absolute;
     inset: 0;
     background:
-        radial-gradient(circle at left, rgba(0, 153, 255, 0.14), transparent 30%),
-        radial-gradient(circle at right, rgba(255, 0, 64, 0.12), transparent 28%);
+        radial-gradient(circle at left, rgba(180, 220, 255, 0.14), transparent 30%),
+        radial-gradient(circle at right, rgba(255, 210, 220, 0.12), transparent 28%);
     pointer-events: none;
 }
 
@@ -163,7 +160,7 @@ main {
 }
 
 .hero p {
-    color: #dbe4fb;
+    color: #eef4ff;
     font-size: 1.15rem;
     max-width: 760px;
     margin-bottom: 28px;
@@ -178,10 +175,10 @@ main {
     font-weight: 700;
     padding: 14px 24px;
     border-radius: 14px;
-    background: linear-gradient(90deg, #0066ff 0%, #ff2d55 100%);
+    background: linear-gradient(90deg, #3b82ff 0%, #ff4f7a 100%);
     box-shadow:
-        0 0 14px rgba(0, 102, 255, 0.22),
-        0 0 16px rgba(255, 45, 85, 0.18);
+        0 0 14px rgba(59, 130, 255, 0.22),
+        0 0 16px rgba(255, 79, 122, 0.18);
     transition: 0.25s ease;
     position: relative;
     z-index: 1;
@@ -190,8 +187,8 @@ main {
 .btn:hover {
     transform: translateY(-2px);
     box-shadow:
-        0 0 18px rgba(0, 102, 255, 0.32),
-        0 0 22px rgba(255, 45, 85, 0.28);
+        0 0 18px rgba(59, 130, 255, 0.32),
+        0 0 22px rgba(255, 79, 122, 0.28);
 }
 
 .btn.small {
@@ -212,20 +209,20 @@ h3 {
 }
 
 .card {
-    background: linear-gradient(180deg, rgba(18, 30, 56, 0.96), rgba(14, 24, 46, 0.98));
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: linear-gradient(180deg, rgba(102, 129, 190, 0.96), rgba(84, 108, 168, 0.98));
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 22px;
     padding: 20px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.22);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.14);
     transition: 0.25s ease;
 }
 
 .card:hover {
     transform: translateY(-6px);
-    border-color: rgba(255, 59, 59, 0.24);
+    border-color: rgba(255, 255, 255, 0.2);
     box-shadow:
-        0 0 20px rgba(0, 102, 255, 0.12),
-        0 0 24px rgba(255, 59, 59, 0.1);
+        0 0 20px rgba(255, 255, 255, 0.08),
+        0 0 24px rgba(255, 255, 255, 0.06);
 }
 
 .card img {
@@ -243,7 +240,7 @@ h3 {
 }
 
 .card p {
-    color: #e2e9fb;
+    color: #f2f6ff;
     margin-bottom: 16px;
 }
 
@@ -257,8 +254,8 @@ h3 {
 
 .product-gallery,
 .product-info-box {
-    background: linear-gradient(180deg, rgba(18, 30, 56, 0.96), rgba(14, 24, 46, 0.98));
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: linear-gradient(180deg, rgba(102, 129, 190, 0.96), rgba(84, 108, 168, 0.98));
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 22px;
     padding: 24px;
 }
@@ -282,14 +279,14 @@ h3 {
     height: 500px;
     object-fit: contain;
     border-radius: 16px;
-    background: #13203b;
+    background: #6a84bf;
 }
 
 .slider-btn {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.55);
+    background: rgba(20, 30, 55, 0.55);
     color: white;
     border: none;
     font-size: 1.5rem;
@@ -322,12 +319,12 @@ h3 {
     border-radius: 10px;
     cursor: pointer;
     border: 2px solid transparent;
-    opacity: 0.85;
+    opacity: 0.9;
 }
 
 .thumb:hover,
 .active-thumb {
-    border-color: #ff2d55;
+    border-color: #ffd0d8;
     opacity: 1;
 }
 
@@ -339,12 +336,12 @@ h3 {
 .product-price {
     font-size: 1.4rem;
     font-weight: bold;
-    color: #ff6b6b;
+    color: #fff0f0;
     margin-bottom: 18px;
 }
 
 .product-description {
-    color: #e0e7fa;
+    color: #f3f6ff;
     line-height: 1.7;
 }
 
@@ -362,8 +359,8 @@ footer {
     margin-top: 70px;
     padding: 28px 0;
     border-top: 1px solid rgba(255, 255, 255, 0.08);
-    color: #c1cbdf;
-    background: rgba(10, 16, 30, 0.7);
+    color: #eef2ff;
+    background: rgba(73, 96, 150, 0.75);
 }
 
 footer p {
