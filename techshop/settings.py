@@ -99,3 +99,5 @@ PAYPAL_CLIENT_SECRET = os.environ.get("PAYPAL_CLIENT_SECRET", "EJQqzvQQUADQfQiBA
 PAYPAL_MODE = os.environ.get("PAYPAL_MODE", "sandbox")
 
 SITE_URL = os.environ.get("SITE_URL", "http://127.0.0.1:8000")
+
+PRINTFUL_API_TOKEN = os.environ.get("PRINTFUL_API_TOKEN", "")
