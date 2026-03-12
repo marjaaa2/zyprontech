@@ -9,7 +9,7 @@
 </head>
 <body>
     <header>
-        <div class="container nav">
+        <div class="container header-wrap">
             <div class="brand">
                 <a href="{% url 'store:home' %}" class="brand-link">
                     <img src="{% static 'images/WhatsApp Image 2026-03-09 at 8.08.54 PM.jpeg' %}" alt="ZypronTech Logo" class="site-logo">
@@ -20,9 +20,9 @@
                 </a>
             </div>
 
-            <nav>
-                <a href="{% url 'store:home' %}">Acasă</a>
-                <a href="{% url 'store:product_list' %}">Produse</a>
+            <nav class="main-nav">
+                <a href="{% url 'store:home' %}" class="active">Home</a>
+                <a href="{% url 'store:product_list' %}">Products</a>
                 <a href="/admin/">Admin</a>
             </nav>
         </div>

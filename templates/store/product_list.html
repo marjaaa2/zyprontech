@@ -11,11 +11,11 @@
             <div class="card">
                 <img src="{% static product.main_image %}" alt="{{ product.name }}">
                 <h4>{{ product.name }}</h4>
-                <p>{{ product.price }} lei</p>
+                <p>{{ product.price }}</p>
                 <a class="btn small" href="{% url 'store:product_detail' product.slug %}">Detalii</a>
             </div>
         {% empty %}
-            <p>Nu există produse încă.</p>
+            <p>There are no products yet.</p>
         {% endfor %}
     </div>
 </section>
