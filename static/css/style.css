@@ -6,9 +6,9 @@
 
 body {
     background:
-        radial-gradient(circle at top left, rgba(0, 153, 255, 0.16), transparent 28%),
-        radial-gradient(circle at top right, rgba(255, 60, 90, 0.14), transparent 28%),
-        linear-gradient(180deg, #0a1224 0%, #101a33 100%);
+        radial-gradient(circle at top left, rgba(80, 160, 255, 0.2), transparent 32%),
+        radial-gradient(circle at top right, rgba(255, 90, 120, 0.18), transparent 32%),
+        linear-gradient(180deg, #22345f 0%, #30497d 100%);
     color: #f5f7ff;
     font-family: Arial, sans-serif;
     min-height: 100vh;
